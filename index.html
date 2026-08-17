@@ -85,6 +85,49 @@
       color: #8a9bbf;
     }
 
+    ul.plain { list-style: none; padding: 0; margin: 0; }
+
+    ul.plain li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #b0bcd4;
+    }
+
+    ul.plain li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #4a90d9;
+    }
+
+    table.services {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    table.services th, table.services td {
+      text-align: left;
+      padding: 9px 10px;
+      border-bottom: 1px solid #1e2d4a;
+      color: #b0bcd4;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+
+    table.services th {
+      color: #4a90d9;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    p + p { margin-top: 12px; }
+
     footer {
       margin-top: 32px;
       font-size: 12px;
@@ -97,16 +140,69 @@
   <div class="card">
     <div class="app-label">Tinker Apps</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: June 2, 2026</p>
+    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: August 16, 2026</p>
 
     <section>
       <h2>Overview</h2>
-      <p>The Crushing Abyss is a mobile game developed by Tinker Apps. Tinker Apps does not collect personal data directly. However, if you use Google Play Games Services, data may be collected by Google as described below.</p>
+      <p>The Crushing Abyss is a mobile game developed by Tinker Apps. Tinker Apps operates no servers of its own — your saved game lives on your device. We use a small number of Google services to understand how the game is played, to offer optional cloud saves and achievements, and to show the Play Store rating card. Each of them is described below.</p>
+      <p>There is no advertising in this game. We do not sell your data, and we do not share it with anyone for advertising.</p>
     </section>
 
     <section>
       <h2>Data We Collect</h2>
-      <p>Tinker Apps does not collect, store, or transmit any personal data to its own servers. We do not use advertising, analytics, or tracking services beyond functionality provided by Google Play Games Services.</p>
+      <p>Three separate things, which are worth keeping apart:</p>
+      <ul class="plain">
+        <li><strong>Your saved game</strong> — haul, upgrades, best depth, unlocked artifacts and settings are stored <em>on your device</em> in local storage. It never leaves the device unless you sign in to Google Play Games Services and use cloud save.</li>
+        <li><strong>Anonymous gameplay statistics</strong> — how far dives get, which bosses are beaten, which upgrades are bought. Collected through Google Firebase Analytics, and not linked to you as a person. You can turn this off in the game.</li>
+        <li><strong>Google Play Games Services data</strong> — only if you choose to sign in, for achievements, leaderboards and cloud save.</li>
+      </ul>
+      <br />
+      <p>We do <strong>not</strong> collect your name, email address, phone number, contacts, photos, precise location, or your device's advertising identifier.</p>
+    </section>
+
+    <section>
+      <h2>Third-Party Services</h2>
+      <table class="services">
+        <tr><th>Service</th><th>Why it is there</th><th>Optional?</th></tr>
+        <tr>
+          <td>Google Firebase Analytics</td>
+          <td>Anonymous gameplay statistics, so we can see where dives get too hard and balance the game</td>
+          <td>Yes — Settings &rsaquo; Privacy</td>
+        </tr>
+        <tr>
+          <td>Google Play Games Services</td>
+          <td>Sign-in, achievements, leaderboards, cloud save</td>
+          <td>Yes — only if you sign in</td>
+        </tr>
+        <tr>
+          <td>Google Play In-App Review</td>
+          <td>Shows the Play Store rating card inside the game</td>
+          <td>Yes — you can dismiss it</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Gameplay Analytics (Firebase)</h2>
+      <p>The game reports anonymous events to Google Firebase Analytics so we can see how the dive actually plays out across many runs. It is how we find the places where the dive is unfairly hard, and it is the only view we have of that.</p>
+      <br />
+      <p>What is recorded:</p>
+      <ul class="plain">
+        <li>Dives started and ended, the expedition and corruption tier, and how the dive ended (out of oxygen, hull crushed, or bottom reached)</li>
+        <li>Depth reached, haul collected, chests opened and relics carried</li>
+        <li>Biomes reached, bosses defeated, Boss Rush results and times</li>
+        <li>Upgrades and mark upgrades bought, and prestige events</li>
+        <li>Achievements unlocked and which in-game screens are opened</li>
+        <li>Coarse progression bands used to group players — for example "has prestiged twice", "best depth between 8,000m and 12,000m"</li>
+      </ul>
+      <br />
+      <p>Firebase itself also records standard technical information: a randomly generated app-instance identifier, your device model and operating system version, the app version, language, and an approximate country derived from your IP address. Google does not retain the IP address itself.</p>
+      <br />
+      <p>What is <strong>not</strong> recorded: any personal identifier, your Google account, your Play Games profile, or your device's <strong>advertising ID</strong>. Advertising ID collection is explicitly disabled in the app, and the permission that would allow it is removed from the app at build time. None of this data is used for advertising or shared with advertisers.</p>
+      <br />
+      <div class="note"><strong>Turning it off.</strong> Open <strong>Settings &rsaquo; Privacy</strong> in the game and set <strong>SHARE GAMEPLAY STATS</strong> to <strong>OFF</strong>. This disables collection at the SDK level — the game stops sending events and Firebase stops gathering them. The setting is remembered on your device.</div>
+      <br />
+      <p>Google acts as our data processor for this information and handles it under <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase's data processing terms</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </section>
 
     <section>
@@ -130,18 +226,46 @@
     </section>
 
     <section>
+      <h2>Google Play In-App Review</h2>
+      <p>After you have played for a while, the game may show Google Play's native rating card once. This is handled entirely by the Google Play In-App Review API: the card is drawn by Google Play, your rating goes to Google, and the game receives no data back — not even whether the card was shown or whether you rated it. Any review you submit is published under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and the Play Store's review policies.</p>
+    </section>
+
+    <section>
+      <h2>Data Retention</h2>
+      <p>Your saved game stays on your device until you delete it or uninstall the app. Cloud saves are kept by Google Play Games Services until you delete them from your Play Games profile.</p>
+      <p>Anonymous analytics events are held by Google for the retention period configured in our Firebase project, after which Google deletes them automatically. Aggregated, non-identifying summaries (for example "the median dive ends at 3,400m") may be kept indefinitely, as they cannot be traced back to any device.</p>
+    </section>
+
+    <section>
       <h2>Data Deletion</h2>
-      <p>We do not store your data on our infrastructure, so there is nothing for us to delete. To manage or delete game data stored by Google Play Games Services, visit your Google Play Games profile or Google Account settings. For step-by-step instructions, see our <a href="https://tinkerapps-support.github.io/crushing-abyss-privacy/delete-account.html">Data Deletion Page</a>.</p>
+      <p>We do not store your data on our infrastructure, so there is nothing for us to delete directly.</p>
+      <ul class="plain">
+        <li><strong>Saved game</strong> — use <strong>Settings &rsaquo; Danger Zone &rsaquo; HOLD TO RESET ALL PROGRESS</strong> in the game, or uninstall the app.</li>
+        <li><strong>Analytics</strong> — turn off <strong>Settings &rsaquo; Privacy &rsaquo; SHARE GAMEPLAY STATS</strong> to stop further collection. Uninstalling the app resets the app-instance identifier, which detaches all previously collected events from your device. To have already-collected analytics deleted, email us at the address below.</li>
+        <li><strong>Play Games data</strong> — manage or delete it from your Google Play Games profile or Google Account settings. For step-by-step instructions, see our <a href="https://tinkerapps-support.github.io/crushing-abyss-privacy/delete-account.html">Data Deletion Page</a>.</li>
+      </ul>
     </section>
 
     <section>
       <h2>Your Rights</h2>
-      <p>Depending on your location, you may have rights to access or delete data associated with your account. These rights can be exercised through your Google account settings, as Tinker Apps does not hold any of your personal data directly.</p>
+      <p>If you are in the <strong>EEA, the UK or Switzerland</strong>, you have the right to access, correct, delete, restrict or object to the processing of your personal data, and to data portability. Our legal basis for the anonymous gameplay statistics is our legitimate interest in understanding and balancing the game; you can withdraw from it at any time using the in-game toggle, with no effect on the game itself. Play Games Services data is processed on the basis of your consent, given when you sign in.</p>
+      <p>If you are in <strong>California or another US state with a privacy law</strong>, you have the right to know what is collected, to delete it, and to opt out of any sale or sharing. We do not sell or share personal information, and we do not use it for cross-context behavioural advertising.</p>
+      <p>Most of these rights can be exercised directly in the game or in your Google Account settings. For anything else, email us — see Contact.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>The Crushing Abyss is not directed to children under 13, and we do not knowingly collect personal information from them. The analytics described above are not used to build advertising profiles of anyone. If you believe a child has provided us with personal information, contact us and we will delete it.</p>
+    </section>
+
+    <section>
+      <h2>International Transfers</h2>
+      <p>Google processes the data described in this policy on servers located in the United States and other countries. Where data is transferred out of the EEA, the UK or Switzerland, Google relies on the European Commission's Standard Contractual Clauses and equivalent safeguards, as set out in its <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">data processing terms</a>.</p>
     </section>
 
     <section>
       <h2>Security</h2>
-      <div class="note">Tinker Apps does not store personal data. Data handled by Google Play Games Services is encrypted in transit and managed under Google's security practices. While Google uses industry-standard security measures, no method of transmission is completely secure.</div>
+      <div class="note">Tinker Apps does not store personal data. Data handled by Google Play Games Services and Firebase is encrypted in transit and managed under Google's security practices. While Google uses industry-standard security measures, no method of transmission is completely secure.</div>
     </section>
 
     <section>
