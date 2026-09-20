@@ -83,9 +83,18 @@
       padding: 14px 18px;
       font-size: 14px;
       color: #8a9bbf;
+      margin: 14px 0;
     }
 
-    ul.plain { list-style: none; padding: 0; margin: 0; }
+    /* The in-app paths a reader has to find in the game itself, as opposed to the
+       ones that live in their Google account. Kept visually distinct on purpose. */
+    .inapp {
+      font-weight: 600;
+      color: #7fd4a8;
+      white-space: nowrap;
+    }
+
+    ul.plain { list-style: none; padding: 0; margin: 14px 0; }
 
     ul.plain li {
       padding: 6px 0 6px 20px;
@@ -140,7 +149,7 @@
   <div class="card">
     <div class="app-label">Tinker Apps</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: August 17, 2026</p>
+    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: September 20, 2026</p>
 
     <section>
       <h2>Overview</h2>
@@ -149,15 +158,23 @@
     </section>
 
     <section>
+      <h2>Where the Controls Are</h2>
+      <p>This policy points you at two different places, and it is worth being clear about which is which before you go looking.</p>
+      <ul class="plain">
+        <li><strong>In the game.</strong> Tap the <span class="inapp">&#9881;</span> gear button on the title screen to open <span class="inapp">Settings</span>. Scrolling down that screen you will find <span class="inapp">&#128274; PRIVACY</span> (the analytics and crash-reporting switch), <span class="inapp">&#9729; GOOGLE PLAY</span> (sign in or out, back up, restore), and <span class="inapp">&#9888; DANGER ZONE</span> (erase your saved game). These are screens inside The Crushing Abyss — nothing about them touches your Google account settings.</li>
+        <li><strong>In your Google account.</strong> Data that Google Play Games Services holds — your Gamer ID, achievement progress and cloud saves — is managed from your Google Play Games profile or Google Account, <em>not</em> from inside this game. We cannot reach it on your behalf.</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Data We Collect</h2>
       <p>Four separate things, which are worth keeping apart:</p>
       <ul class="plain">
         <li><strong>Your saved game</strong> — haul, upgrades, best depth, unlocked artifacts and settings are stored <em>on your device</em> in local storage. It never leaves the device unless you sign in to Google Play Games Services and use cloud save.</li>
-        <li><strong>Anonymous gameplay statistics</strong> — how far dives get, which bosses are beaten, which upgrades are bought. Collected through Google Firebase Analytics, and not linked to you as a person. You can turn this off in the game.</li>
+        <li><strong>Anonymous gameplay statistics</strong> — how far dives get, which bosses are beaten, which upgrades are bought. Collected through Google Firebase Analytics, and not linked to you as a person. You can turn this off in the game's own Settings screen.</li>
         <li><strong>Crash and error reports</strong> — if the game crashes or hits an unexpected error, a diagnostic report is sent through Google Firebase Crashlytics so we can fix it. Not linked to you as a person, and covered by the same off switch as the statistics above.</li>
         <li><strong>Google Play Games Services data</strong> — only if you choose to sign in, for achievements and cloud save.</li>
       </ul>
-      <br />
       <p>We do <strong>not</strong> collect your name, email address, phone number, contacts, photos, precise location, or your device's advertising identifier.</p>
     </section>
 
@@ -168,12 +185,12 @@
         <tr>
           <td>Google Firebase Analytics</td>
           <td>Anonymous gameplay statistics, so we can see where dives get too hard and balance the game</td>
-          <td>Yes — Settings &rsaquo; Privacy</td>
+          <td>Yes — in the game: <span class="inapp">&#9881; &rsaquo; Privacy</span></td>
         </tr>
         <tr>
           <td>Google Firebase Crashlytics</td>
           <td>Crash and error reports, so we can fix what breaks the game</td>
-          <td>Yes — Settings &rsaquo; Privacy</td>
+          <td>Yes — in the game: <span class="inapp">&#9881; &rsaquo; Privacy</span></td>
         </tr>
         <tr>
           <td>Google Play Games Services</td>
@@ -191,7 +208,6 @@
     <section>
       <h2>Gameplay Analytics (Firebase)</h2>
       <p>The game reports anonymous events to Google Firebase Analytics so we can see how the dive actually plays out across many runs. It is how we find the places where the dive is unfairly hard, and it is the only view we have of that.</p>
-      <br />
       <p>What is recorded:</p>
       <ul class="plain">
         <li>Dives started and ended, the expedition and corruption tier, and how the dive ended (out of oxygen, hull crushed, or bottom reached)</li>
@@ -201,20 +217,15 @@
         <li>Achievements unlocked and which in-game screens are opened</li>
         <li>Coarse progression bands used to group players — for example "has prestiged twice", "best depth between 8,000m and 12,000m"</li>
       </ul>
-      <br />
       <p>Firebase itself also records standard technical information: a randomly generated app-instance identifier, your device model and operating system version, the app version, language, and an approximate country derived from your IP address. Google does not retain the IP address itself.</p>
-      <br />
-      <p>What is <strong>not</strong> recorded: any personal identifier, your Google account, your Play Games profile, or your device's <strong>advertising ID</strong>. Advertising ID collection is explicitly disabled in the app, and the permission that would allow it is removed from the app at build time. None of this data is used for advertising or shared with advertisers.</p>
-      <br />
-      <div class="note"><strong>Turning it off.</strong> Open <strong>Settings &rsaquo; Privacy</strong> in the game and set <strong>SHARE STATS &amp; CRASHES</strong> to <strong>OFF</strong>. This disables collection at the SDK level — the game stops sending events and Firebase stops gathering them. The same switch also turns off the crash reporting described in the next section. The setting is remembered on your device.</div>
-      <br />
+      <p>What is <strong>not</strong> recorded: any personal identifier, your Google account, your Play Games profile, or your device's <strong>advertising ID</strong>. Advertising ID collection is explicitly disabled in the app, and <strong>all three</strong> advertising-identifier permissions that Google's analytics library would otherwise add — the Advertising ID permission itself and the two Privacy Sandbox permissions that replace it — are removed from the app at build time, so the installed app declares none of them. None of this data is used for advertising or shared with advertisers.</p>
+      <div class="note"><strong>One switch turns this off — and it is in the game, not your Google account.</strong> Tap <span class="inapp">&#9881;</span> on the title screen, scroll to <span class="inapp">&#128274; PRIVACY</span>, and set <span class="inapp">SHARE STATS &amp; CRASHES</span> to <span class="inapp">OFF</span>. That covers both the gameplay statistics here <em>and</em> the crash reports in the next section. It disables collection in the Firebase SDKs themselves rather than merely muting what the game sends, so both sides stop. Your choice is remembered on your device and survives closing the game.</div>
       <p>Google acts as our data processor for this information and handles it under <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase's data processing terms</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </section>
 
     <section>
       <h2>Crash Reporting (Firebase Crashlytics)</h2>
       <p>When the game crashes, freezes on an unexpected error, or hits a bug in its own code, a diagnostic report is sent to Google Firebase Crashlytics. Without it a crash that only happens on one make of phone is invisible to us — the report is what makes it fixable.</p>
-      <br />
       <p>What a report contains:</p>
       <ul class="plain">
         <li>The error message and the stack trace — which part of the game's code failed</li>
@@ -223,31 +234,20 @@
         <li>A randomly generated installation identifier, so repeat crashes on one device can be counted as one problem rather than many</li>
         <li>A short trail of the last few things that happened in the game — which screens you opened, and which expedition and corruption tier the dive was on — so we can retrace the steps to the crash</li>
       </ul>
-      <br />
       <p>What a report does <strong>not</strong> contain: your name, email address, Google account, Play Games profile, advertising ID, or the contents of your saved game. We never attach an identifier of you as a person to a crash report.</p>
-      <br />
-      <div class="note"><strong>Turning it off.</strong> The same switch covers it — <strong>Settings &rsaquo; Privacy &rsaquo; SHARE STATS &amp; CRASHES</strong> set to <strong>OFF</strong> stops crash reporting at the SDK level as well as the gameplay statistics. Reports already collected before you switched it off are handled as described under Data Retention.</div>
-      <br />
+      <div class="note"><strong>Turning it off.</strong> The same in-game switch covers it — <span class="inapp">&#9881; &rsaquo; &#128274; PRIVACY &rsaquo; SHARE STATS &amp; CRASHES</span> set to <span class="inapp">OFF</span>. Crash reporting then stays off every time you open the game, not just for that session. A report that was already sent before you switched it off is kept for the period described under Data Retention; a report still waiting on your device is not sent, and uninstalling the game removes it.</div>
       <p>Google acts as our data processor for crash reports, under the same <a href="https://firebase.google.com/terms/data-processing-terms" target="_blank" rel="noopener">Firebase data processing terms</a> linked above.</p>
     </section>
 
     <section>
       <h2>Google Play Games Services</h2>
       <p>The app optionally integrates with Google Play Games Services (GPGS) for sign-in, cloud saves, and achievement tracking. If you do not sign in, no personal data is transmitted off your device.</p>
-      <br />
       <p>If you do sign in, Google Play Games Services independently collects the following for app functionality purposes:</p>
-      <br />
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li style="padding:6px 0 6px 20px;position:relative;font-size:15px;line-height:1.7;color:#b0bcd4;">
-          <span style="position:absolute;left:0;color:#4a90d9;">–</span>
-          <strong>User ID (Gamer ID)</strong> — a unique identifier linking your Google account to your in-game profile
-        </li>
-        <li style="padding:6px 0 6px 20px;position:relative;font-size:15px;line-height:1.7;color:#b0bcd4;">
-          <span style="position:absolute;left:0;color:#4a90d9;">–</span>
-          <strong>App activity</strong> — achievement progress and cloud save data (your synced game progress) used to power GPGS features
-        </li>
+      <ul class="plain">
+        <li><strong>User ID (Gamer ID)</strong> — a unique identifier linking your Google account to your in-game profile</li>
+        <li><strong>App activity</strong> — achievement progress and cloud save data (your synced game progress) used to power GPGS features</li>
       </ul>
-      <br />
+      <p>Signing in is entirely your choice, and you can reverse it: <span class="inapp">&#9881; &rsaquo; &#9729; GOOGLE PLAY</span> in the game offers <span class="inapp">SIGN IN</span> / <span class="inapp">SIGN OUT</span> alongside manual <span class="inapp">BACK UP NOW</span> and <span class="inapp">RESTORE</span> buttons. Signing out stops the game syncing anything further; the cloud save itself continues to live in your Play Games profile until you delete it there, which is a Google account action rather than an in-game one.</p>
       <p>Tinker Apps accesses Play Games data only to provide sign-in, cloud saves, and achievements, and does not store it on its own servers or use it for any other purpose. Google Play Games Services operates as an independent data controller under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</p>
     </section>
 
@@ -267,9 +267,9 @@
       <h2>Data Deletion</h2>
       <p>We do not store your data on our infrastructure, so there is nothing for us to delete directly.</p>
       <ul class="plain">
-        <li><strong>Saved game</strong> — use <strong>Settings &rsaquo; Danger Zone &rsaquo; HOLD TO RESET ALL PROGRESS</strong> in the game, or uninstall the app.</li>
-        <li><strong>Analytics and crash reports</strong> — turn off <strong>Settings &rsaquo; Privacy &rsaquo; SHARE STATS &amp; CRASHES</strong> to stop further collection of both. Uninstalling the app resets the app-instance and installation identifiers, which detaches everything previously collected from your device. To have already-collected analytics or crash reports deleted, email us at the address below.</li>
-        <li><strong>Play Games data</strong> — manage or delete it from your Google Play Games profile or Google Account settings. For step-by-step instructions, see our <a href="https://tinkerapps-support.github.io/crushing-abyss-privacy/delete-account.html">Data Deletion Page</a>.</li>
+        <li><strong>Saved game</strong> <em>(in the game)</em> — <span class="inapp">&#9881; &rsaquo; &#9888; DANGER ZONE &rsaquo; HOLD TO RESET ALL PROGRESS</span>, or uninstall the game.</li>
+        <li><strong>Analytics and crash reports</strong> <em>(in the game)</em> — turn <span class="inapp">&#9881; &rsaquo; &#128274; PRIVACY &rsaquo; SHARE STATS &amp; CRASHES</span> to <span class="inapp">OFF</span> to stop further collection of both. Uninstalling the game resets the app-instance and installation identifiers, which detaches everything previously collected from your device. To have already-collected analytics or crash reports deleted, email us at the address below.</li>
+        <li><strong>Play Games data</strong> <em>(in your Google account)</em> — manage or delete it from your Google Play Games profile or Google Account settings; there is no in-game control for this. For step-by-step instructions, see our <a href="https://tinkerapps-support.github.io/crushing-abyss-privacy/delete-account.html">Data Deletion Page</a>.</li>
       </ul>
     </section>
 
@@ -277,7 +277,7 @@
       <h2>Your Rights</h2>
       <p>If you are in the <strong>EEA, the UK or Switzerland</strong>, you have the right to access, correct, delete, restrict or object to the processing of your personal data, and to data portability. Our legal basis for the anonymous gameplay statistics is our legitimate interest in understanding and balancing the game, and for the crash reports our legitimate interest in keeping the game working on the devices people actually play it on; you can withdraw from both at any time using the in-game toggle, with no effect on the game itself. Play Games Services data is processed on the basis of your consent, given when you sign in.</p>
       <p>If you are in <strong>California or another US state with a privacy law</strong>, you have the right to know what is collected, to delete it, and to opt out of any sale or sharing. We do not sell or share personal information, and we do not use it for cross-context behavioural advertising.</p>
-      <p>Most of these rights can be exercised directly in the game or in your Google Account settings. For anything else, email us — see Contact.</p>
+      <p>Most of these rights can be exercised directly — the analytics, crash-reporting and progress-erasing controls are in the game's own Settings screen, and the Play Games controls are in your Google Account. "Where the Controls Are" above says which is which. For anything else, email us — see Contact.</p>
     </section>
 
     <section>
