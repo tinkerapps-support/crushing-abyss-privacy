@@ -149,12 +149,12 @@
   <div class="card">
     <div class="app-label">Tinker Apps</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: September 20, 2026</p>
+    <p class="meta">The Crushing Abyss &nbsp;&middot;&nbsp; Last updated: October 13, 2026</p>
 
     <section>
       <h2>Overview</h2>
       <p>The Crushing Abyss is a mobile game developed by Tinker Apps. Tinker Apps operates no servers of its own — your saved game lives on your device. We use a small number of Google services to understand how the game is played, to find out when it crashes, to offer optional cloud saves and achievements, and to show the Play Store rating card. Each of them is described below.</p>
-      <p>There is no advertising in this game. We do not sell your data, and we do not share it with anyone for advertising.</p>
+      <p>There is no advertising in this game. We do not sell your data, and we do not share it with anyone for advertising. (Settings does list our own other games — see <em>Our Other Games</em> — but no ad network is involved.)</p>
     </section>
 
     <section>
@@ -215,6 +215,8 @@
         <li>Biomes reached, bosses defeated, Boss Rush results and times</li>
         <li>Upgrades and mark upgrades bought, and prestige events</li>
         <li>Achievements unlocked and which in-game screens are opened</li>
+        <li>Whether the game asked for the Play Store rating card, whether Google Play allowed the request, or why the game held it back (see <em>Google Play In-App Review</em>)</li>
+        <li>Which of our other games you tapped in Settings (see <em>Our Other Games</em>)</li>
         <li>Coarse progression bands used to group players — for example "has prestiged twice", "best depth between 8,000m and 12,000m"</li>
       </ul>
       <p>Firebase itself also records standard technical information: a randomly generated app-instance identifier, your device model and operating system version, the app version, language, and an approximate country derived from your IP address. Google does not retain the IP address itself.</p>
@@ -253,7 +255,12 @@
 
     <section>
       <h2>Google Play In-App Review</h2>
-      <p>After you have played for a while, the game may show Google Play's native rating card once. This is handled entirely by the Google Play In-App Review API: the card is drawn by Google Play, your rating goes to Google, and the game receives no data back — not even whether the card was shown or whether you rated it. Any review you submit is published under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and the Play Store's review policies.</p>
+      <p>After you have played for a while, the game may show Google Play's native rating card — at most three times in all. This is handled entirely by the Google Play In-App Review API: the card is drawn by Google Play and your rating goes to Google. The game never learns whether you rated it or what you wrote, and Google Play does not even tell it whether the card actually appeared — only whether its request was accepted, which the game records in its gameplay statistics (above) so we can tell whether the card is working. Any review you submit is published under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and the Play Store's review policies.</p>
+    </section>
+
+    <section>
+      <h2>Our Other Games</h2>
+      <p>Settings ends with <span class="inapp">MORE FROM TINKERAPPS</span>, a short list of our other games. It is part of the game: no advertising SDK is involved and nothing is downloaded to show it. If you tap one, Google Play opens that game's store page with a short tag naming The Crushing Abyss as where you came from, so Google Play can report how many installs our own promotion produced. The tag contains no personal information. The tap is recorded in the gameplay statistics above, and like them it is covered by the <span class="inapp">SHARE STATS &amp; CRASHES</span> switch.</p>
     </section>
 
     <section>
